@@ -1,333 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fitness Karkhana Gym, Durgakund, Varanasi. Start your fitness journey today!">
-    <title>Fitness Karkhana Gym | Transform Your Life</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fitness Karkhana Gym, Durgakund, Varanasi. Train with purpose and build a healthier lifestyle.">
+  <meta name="theme-color" content="#101010">
+  <title>Fitness Karkhana | Train Beyond Limits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root{--bg:#0b0b0b;--panel:#151515;--panel2:#1d1d1d;--red:#f04438;--red2:#ff654f;--white:#f7f7f7;--muted:#aaa;--line:rgba(255,255,255,.1)}
+    *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--white);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+    .container{width:min(1160px,90%);margin:auto}
+    .navbar{height:82px;position:fixed;inset:0 0 auto;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(9,9,9,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:.3s}
+    .navbar.scrolled{height:70px;background:rgba(9,9,9,.96)}
+    .logo{font-weight:900;letter-spacing:1px;font-size:20px;line-height:1}.logo span{color:var(--red)}.logo small{display:block;font-size:9px;letter-spacing:3px;color:#aaa;margin-top:6px}
+    nav{display:flex;align-items:center;gap:27px}nav a{font-size:12px;font-weight:800;letter-spacing:1px;color:#ddd;transition:.25s}nav a:hover{color:var(--red)}
+    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:white;padding:14px 22px;font-size:12px;font-weight:900;letter-spacing:1px;border:0;cursor:pointer;transition:.25s;clip-path:polygon(0 0,100% 0,100% 78%,91% 100%,0 100%)}
+    .nav-cta:hover,.btn:hover{background:#ff6558;transform:translateY(-3px);box-shadow:0 12px 30px #f0443840}
+    .menu-toggle{display:none;background:none;border:0;color:white;font-size:24px}
+    .hero{min-height:760px;height:100vh;max-height:950px;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.75) 48%,rgba(0,0,0,.25) 100%),linear-gradient(0deg,#0b0b0b 0%,transparent 35%),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=90') center/cover}
+    .hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 80% 50%,transparent 0 20%,rgba(0,0,0,.22) 70%)}
+    .hero-content{position:relative;z-index:2;width:min(1160px,90%);margin:70px auto 0;animation:heroIn 1s both}
+    .eyebrow,.section-tag{color:var(--red2);font-size:11px;letter-spacing:4px;font-weight:900;text-transform:uppercase}
+    h1,h2,.display{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:1px;text-transform:uppercase}
+    .hero h1{font-size:clamp(58px,9vw,116px);line-height:.98;margin:22px 0;max-width:800px}
+    .hero h1 span,.red{color:var(--red)}
+    .hero p{color:#c8c8c8;line-height:1.9;max-width:510px;font-size:15px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+    .btn-outline{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border:1px solid #ffffff66;font-size:12px;font-weight:900;letter-spacing:1px;transition:.25s}
+    .btn-outline:hover{border-color:var(--red);color:var(--red)}
+    .hero-meta{display:flex;gap:28px;margin-top:48px;flex-wrap:wrap}
+    .meta-item{border-left:2px solid var(--red);padding-left:13px}.meta-item strong{display:block;font-size:21px}.meta-item small{font-size:10px;letter-spacing:2px;color:#aaa;text-transform:uppercase}
+    .ticker{overflow:hidden;background:var(--red);padding:15px 0;white-space:nowrap;transform:rotate(-1deg) scale(1.02);margin:0 0 20px}
+    .ticker-track{display:inline-block;animation:marquee 26s linear infinite;font-family:Anton,sans-serif;font-size:20px;letter-spacing:3px}.ticker span{padding:0 28px}.ticker i{font-size:13px}
+    section{padding:105px 0}.section-head{text-align:center;margin:0 auto 52px;max-width:700px}.section-head h2{font-size:clamp(38px,6vw,65px);line-height:1.05;margin:13px 0}.section-head p{color:var(--muted);font-size:14px;line-height:1.8}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+    .about-photo{position:relative}.about-photo img{width:100%;height:520px;object-fit:cover;filter:grayscale(20%)}.photo-stamp{position:absolute;right:-20px;bottom:28px;background:var(--red);padding:22px 26px;font-family:Anton;font-size:22px;letter-spacing:1px}
+    .about-copy h2{font-size:clamp(40px,5vw,62px);line-height:1.05;margin:15px 0 22px}.about-copy p{color:#aaa;line-height:1.9;font-size:14px}.feature-list{display:grid;gap:17px;margin:28px 0}.feature{display:flex;gap:13px;align-items:center;font-size:13px;font-weight:800}.feature i{color:var(--red);font-size:18px;width:22px}
+    .services{background:#111}.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service-card{position:relative;height:310px;overflow:hidden;background:#222}.service-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s,filter .5s;filter:grayscale(35%);opacity:.8}.service-card:hover img{transform:scale(1.1);filter:grayscale(0);opacity:.55}.service-info{position:absolute;inset:auto 0 0;padding:25px;background:linear-gradient(0deg,#000 0%,transparent 100%)}.service-info i{color:var(--red);font-size:23px;margin-bottom:12px}.service-info h3{font-family:Anton;font-size:25px;letter-spacing:1px}.service-info p{font-size:12px;color:#bbb;margin-top:6px}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.why-card{padding:35px 28px;background:var(--panel);border:1px solid var(--line);transition:.3s}.why-card:hover{transform:translateY(-8px);border-color:var(--red)}.why-card i{font-size:29px;color:var(--red);margin-bottom:22px}.why-card h3{font-family:Anton;font-size:24px;letter-spacing:1px;margin-bottom:10px}.why-card p{color:#999;font-size:13px;line-height:1.8}
+    .membership{background:linear-gradient(180deg,#111,#0b0b0b)}.price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;align-items:stretch}.price-card{position:relative;background:var(--panel);border:1px solid var(--line);padding:32px 23px;text-align:center;transition:.3s}.price-card:hover{transform:translateY(-8px);border-color:var(--red)}.price-card.featured{border:1px solid var(--red);background:linear-gradient(160deg,#281412,#151515 65%)}.popular{position:absolute;top:0;left:0;right:0;background:var(--red);padding:7px;font-size:9px;font-weight:900;letter-spacing:2px}.price-card i{font-size:25px;color:var(--red);margin:12px 0 17px}.price-card h3{font-family:Anton;font-size:24px;letter-spacing:1px}.price{font-family:Anton;font-size:42px;margin:12px 0 4px}.price small{font-family:Manrope;font-size:13px;color:#aaa}.price-card p{font-size:12px;color:#aaa;margin-bottom:24px}.price-card .btn{width:100%;padding:13px 8px;font-size:10px}
+    .gallery-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:220px 220px;gap:14px}.gallery-grid img{width:100%;height:100%;object-fit:cover;filter:grayscale(30%);transition:.5s}.gallery-grid img:hover{filter:grayscale(0);transform:scale(1.02)}.gallery-grid img:first-child{grid-row:span 2}
+    .quote-band{padding:75px 5%;text-align:center;background:linear-gradient(90deg,#190b0a,#3a100d,#190b0a);border-block:1px solid #f0443833}.quote-band h2{font-size:clamp(34px,6vw,66px)}.quote-band p{color:#bbb;margin-top:13px;font-size:13px;letter-spacing:2px}
+    .contact{background:#111}.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px}.contact-info{display:grid;gap:25px;align-content:start}.contact-item{display:flex;gap:17px;align-items:flex-start}.contact-item>i{width:45px;height:45px;display:grid;place-items:center;background:#291311;color:var(--red);font-size:18px}.contact-item h3{font-family:Anton;font-size:20px;letter-spacing:1px;margin-bottom:5px}.contact-item p,.contact-item a{color:#aaa;font-size:13px;line-height:1.8}.contact-form{background:var(--panel);padding:32px;border:1px solid var(--line)}.contact-form h3{font-family:Anton;font-size:28px;margin-bottom:22px}.contact-form input,.contact-form textarea{width:100%;padding:15px;margin-bottom:13px;background:#0d0d0d;border:1px solid #333;color:white;font:inherit;font-size:13px;outline:none}.contact-form input:focus,.contact-form textarea:focus{border-color:var(--red)}.contact-form textarea{resize:vertical}.contact-form button{width:100%}
+    footer{padding:42px 5%;text-align:center;background:#080808;border-top:1px solid var(--line)}footer p{color:#777;font-size:11px;letter-spacing:2px;margin:14px 0}.footer-links{display:flex;justify-content:center;gap:22px;margin-top:20px}.footer-links a{font-size:11px;color:#aaa}.footer-links a:hover{color:var(--red)}
+    .whatsapp{position:fixed;right:22px;bottom:22px;z-index:999;width:56px;height:56px;border-radius:50%;background:#20c66b;color:white;display:grid;place-items:center;font-size:28px;box-shadow:0 8px 25px #0008;animation:pulse 2s infinite}
+    .reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    @keyframes heroIn{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes pulse{50%{box-shadow:0 0 0 12px #20c66b22,0 8px 25px #0008}}
+    @media(max-width:900px){nav{gap:14px}nav a{font-size:10px}.price-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:35px}.service-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.navbar{height:70px}.menu-toggle{display:block}nav{display:none;position:absolute;top:70px;left:0;right:0;padding:22px 5%;background:#101010;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:14px 0;font-size:12px;border-bottom:1px solid #ffffff12}.nav-cta{text-align:center;margin-top:12px}.hero{min-height:720px;background-position:60% center}.hero h1{font-size:clamp(55px,16vw,85px)}section{padding:75px 0}.about-grid,.contact-grid{grid-template-columns:1fr}.about-photo img{height:360px}.photo-stamp{right:0}.service-grid,.why-grid{grid-template-columns:1fr}.service-card{height:280px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}.gallery-grid img:first-child{grid-row:auto}.price-grid{grid-template-columns:1fr 1fr;gap:10px}.price-card{padding:28px 13px}.price{font-size:34px}.contact-form{padding:23px}.hero-meta{gap:18px}.hero-meta .meta-item strong{font-size:18px}}
+    @media(max-width:420px){.price-grid{grid-template-columns:1fr}.hero-actions{align-items:stretch;flex-direction:column;max-width:250px}.hero-actions a{width:100%}.gallery-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,190px)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+  </style>
 </head>
-
 <body>
-
-<!-- NAVBAR -->
-<header class="navbar">
-    <a href="#home" class="logo">
-        <span>FITNESS</span> KARKHANA
-        <small>GYM & FITNESS CENTRE</small>
-    </a>
-
-    <div class="menu-toggle" id="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
-
-    <nav id="nav-menu">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#membership">Membership</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-        <a href="tel:9236343455" class="nav-btn">JOIN NOW</a>
-    </nav>
+<header class="navbar" id="navbar">
+  <a href="#home" class="logo"><span>FITNESS</span> KARKHANA<small>GYM & FITNESS CENTRE</small></a>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  <nav id="nav-menu">
+    <a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#services">SERVICES</a><a href="#membership">PLANS</a><a href="#gallery">GALLERY</a><a href="#contact">CONTACT</a>
+    <a href="tel:9236343455" class="nav-cta">JOIN NOW <i class="fas fa-arrow-right"></i></a>
+  </nav>
 </header>
-
-<!-- HERO SECTION -->
+<main>
 <section class="hero" id="home">
-    <div class="hero-content">
-        <span class="tagline">WELCOME TO FITNESS KARKHANA</span>
-
-        <h1>
-            BUILD YOUR BODY.<br>
-            <span>TRANSFORM</span><br>
-            YOUR LIFE.
-        </h1>
-
-        <p>
-            Your fitness journey starts here.
-            Train harder, become stronger and unlock your true potential.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="tel:9236343455" class="btn-primary">JOIN NOW <i class="fas fa-arrow-right"></i></a>
-            <a href="#about" class="btn-secondary">EXPLORE MORE</a>
-        </div>
-
-        <div class="rating">
-            <i class="fas fa-star"></i>
-            <strong>4.8/5</strong>
-            <span>Customer Rating</span>
-        </div>
+  <div class="hero-content">
+    <span class="eyebrow">WELCOME TO FITNESS KARKHANA</span>
+    <h1>BUILD YOUR BODY.<br><span>OWN YOUR</span><br>STRENGTH.</h1>
+    <p>More than a workout. It's your commitment to becoming stronger, healthier and more confident — one session at a time.</p>
+    <div class="hero-actions"><a class="btn" href="#membership">EXPLORE MEMBERSHIPS <i class="fas fa-arrow-right"></i></a><a class="btn-outline" href="#about">DISCOVER THE GYM</a></div>
+    <div class="hero-meta">
+      <div class="meta-item"><strong>4.5 / 5 <span style="color:#ffbd45">★</span></strong><small>Gym rating</small></div>
+      <div class="meta-item"><strong>4 PLANS</strong><small>Flexible memberships</small></div>
+      <div class="meta-item"><strong>DURGAKUND</strong><small>Varanasi</small></div>
     </div>
-
-    <div class="hero-overlay"></div>
+  </div>
 </section>
-
-<!-- ABOUT SECTION -->
-<section class="about section" id="about">
-    <div class="about-image reveal">
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900" alt="Modern gym interior">
-        <div class="image-label">YOUR FITNESS DESTINATION</div>
-    </div>
-
-    <div class="about-content reveal">
-        <span class="section-tag">ABOUT OUR GYM</span>
-        <h2>MORE THAN A GYM.<br><span>IT'S A MOVEMENT.</span></h2>
-
-        <p>
-            Welcome to Fitness Karkhana Gym, your fitness destination
-            in Durgakund, Varanasi. Whether your goal is strength,
-            fitness, muscle building or a healthier lifestyle,
-            take the first step towards becoming your best self.
-        </p>
-
-        <div class="about-points">
-            <div><i class="fas fa-dumbbell"></i> Fitness-focused environment</div>
-            <div><i class="fas fa-fire"></i> Training for different goals</div>
-            <div><i class="fas fa-heart"></i> Build a healthier lifestyle</div>
-        </div>
-
-        <a href="#contact" class="btn-primary">CONTACT US</a>
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services section" id="services">
-    <div class="section-heading reveal">
-        <span class="section-tag">WHAT WE OFFER</span>
-        <h2>TRAIN HARD. <span>STAY STRONG.</span></h2>
-        <p>Explore fitness training options for your goals.</p>
-    </div>
-
-    <div class="service-grid">
-
-        <div class="service-card reveal">
-            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=700" alt="Strength training">
-            <div class="service-info">
-                <i class="fas fa-dumbbell"></i>
-                <h3>STRENGTH TRAINING</h3>
-                <p>Work towards greater strength and fitness.</p>
-            </div>
-        </div>
-
-        <div class="service-card reveal">
-            <img src="https://images.unsplash.com/photo-1534368270820-9de3d8053204?w=700" alt="Weight training">
-            <div class="service-info">
-                <i class="fas fa-weight-hanging"></i>
-                <h3>WEIGHT TRAINING</h3>
-                <p>Build strength through resistance training.</p>
-            </div>
-        </div>
-
-        <div class="service-card reveal">
-            <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=700" alt="Cardio training">
-            <div class="service-info">
-                <i class="fas fa-heartbeat"></i>
-                <h3>CARDIO TRAINING</h3>
-                <p>Improve endurance and cardiovascular fitness.</p>
-            </div>
-        </div>
-
-        <div class="service-card reveal">
-            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=700" alt="Personal fitness">
-            <div class="service-info">
-                <i class="fas fa-user"></i>
-                <h3>PERSONAL TRAINING</h3>
-                <p>Work towards your individual fitness goals.</p>
-            </div>
-        </div>
-
-        <div class="service-card reveal">
-            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=700" alt="Muscle building">
-            <div class="service-info">
-                <i class="fas fa-bolt"></i>
-                <h3>MUSCLE BUILDING</h3>
-                <p>Focus on muscle growth and development.</p>
-            </div>
-        </div>
-
-        <div class="service-card reveal">
-            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700" alt="Fitness workout">
-            <div class="service-info">
-                <i class="fas fa-person-running"></i>
-                <h3>WEIGHT MANAGEMENT</h3>
-                <p>Take steps towards a healthier body.</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section class="why section">
-    <div class="section-heading reveal">
-        <span class="section-tag">WHY FITNESS KARKHANA</span>
-        <h2>YOUR GOALS. <span>OUR INSPIRATION.</span></h2>
-    </div>
-
-    <div class="why-grid">
-        <div class="why-card reveal">
-            <i class="fas fa-dumbbell"></i>
-            <h3>FITNESS FOCUSED</h3>
-            <p>A place to work towards your fitness goals.</p>
-        </div>
-
-        <div class="why-card reveal">
-            <i class="fas fa-bullseye"></i>
-            <h3>GOAL ORIENTED</h3>
-            <p>Choose training according to your goals.</p>
-        </div>
-
-        <div class="why-card reveal">
-            <i class="fas fa-location-dot"></i>
-            <h3>GREAT LOCATION</h3>
-            <p>Conveniently located in Durgakund, Varanasi.</p>
-        </div>
-    </div>
-</section>
-
-<!-- MEMBERSHIP -->
-<section class="membership section" id="membership">
-    <div class="section-heading reveal">
-        <span class="section-tag">MEMBERSHIP PLANS</span>
-        <h2>INVEST IN <span>YOURSELF.</span></h2>
-        <p>Choose a membership duration that suits you.</p>
-    </div>
-
-    <div class="price-grid">
-
-        <div class="price-card reveal">
-            <i class="fas fa-calendar"></i>
-            <h3>MONTHLY</h3>
-            <h2>CONTACT <span>US</span></h2>
-            <p>Monthly membership</p>
-            <a href="tel:9236343455" class="btn-primary">ENQUIRE NOW</a>
-        </div>
-
-        <div class="price-card featured reveal">
-            <div class="popular">POPULAR OPTION</div>
-            <i class="fas fa-fire"></i>
-            <h3>QUARTERLY</h3>
-            <h2>CONTACT <span>US</span></h2>
-            <p>Three-month membership</p>
-            <a href="tel:9236343455" class="btn-primary">ENQUIRE NOW</a>
-        </div>
-
-        <div class="price-card reveal">
-            <i class="fas fa-trophy"></i>
-            <h3>ANNUAL</h3>
-            <h2>CONTACT <span>US</span></h2>
-            <p>Annual membership</p>
-            <a href="tel:9236343455" class="btn-primary">ENQUIRE NOW</a>
-        </div>
-
-    </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery section" id="gallery">
-    <div class="section-heading reveal">
-        <span class="section-tag">OUR GALLERY</span>
-        <h2>THE FITNESS <span>ATMOSPHERE.</span></h2>
-    </div>
-
-    <div class="gallery-grid">
-        <img class="reveal" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800" alt="Gym interior">
-        <img class="reveal" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800" alt="Gym training">
-        <img class="reveal" src="https://images.unsplash.com/photo-1534368270820-9de3d8053204?w=800" alt="Weight lifting">
-        <img class="reveal" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800" alt="Fitness workout">
-    </div>
-</section>
-
-<!-- RATING -->
-<section class="rating-section">
-    <div class="rating-content reveal">
-        <span class="section-tag">CUSTOMER RATING</span>
-        <h2>4.8 <span>/ 5</span></h2>
-        <div class="stars">★★★★★</div>
-        <p>Rated by customers. Your fitness journey starts here.</p>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact section" id="contact">
-    <div class="section-heading reveal">
-        <span class="section-tag">GET IN TOUCH</span>
-        <h2>READY TO <span>START?</span></h2>
-        <p>Take the first step towards your fitness journey.</p>
-    </div>
-
-    <div class="contact-grid">
-
-        <div class="contact-info reveal">
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <h3>CALL US</h3>
-                    <a href="tel:9236343455">9236343455</a>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <div>
-                    <h3>OUR LOCATION</h3>
-                    <p>Durgakund, near JRS Coaching,<br>Kabir Nagar Road, Varanasi.</p>
-                </div>
-            </div>
-
-            <div class="contact-item">
-                <i class="fas fa-star"></i>
-                <div>
-                    <h3>OUR RATING</h3>
-                    <p>4.8 / 5 Stars</p>
-                </div>
-            </div>
-
-            <a href="https://www.google.com/maps/search/?api=1&query=Fitness+Karkhana+Gym+Durgakund+Varanasi" target="_blank" rel="noopener" class="btn-primary">FIND US ON MAPS</a>
-        </div>
-
-        <form class="contact-form reveal" id="contact-form">
-            <h3>SEND AN ENQUIRY</h3>
-
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="tel" id="phone" placeholder="Your Phone Number" pattern="[0-9+\-\s]{10,15}" required>
-            <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-
-            <button type="submit" class="btn-primary">SEND ON WHATSAPP <i class="fab fa-whatsapp"></i></button>
-        </form>
-
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <a href="#home" class="logo"><span>FITNESS</span> KARKHANA</a>
-    <p>BUILD YOUR BODY. TRANSFORM YOUR LIFE.</p>
-    <p>© 2026 Fitness Karkhana Gym. All Rights Reserved.</p>
-    <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-    </div>
-</footer>
-
-<!-- FLOATING WHATSAPP BUTTON -->
-<a href="https://wa.me/919236343455" class="whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<script src="script.js"></script>
+<div class="ticker"><div class="ticker-track"><span>NO EXCUSES. JUST RESULTS.</span><i class="fas fa-dumbbell"></i><span>TRAIN WITH PURPOSE.</span><i class="fas fa-bolt"></i><span>STRONGER EVERY DAY.</span><i class="fas fa-dumbbell"></i><span>NO EXCUSES. JUST RESULTS.</span><i class="fas fa-bolt"></i><span>TRAIN WITH PURPOSE.</span></div></div>
+<section id="about"><div class="container about-grid">
+  <div class="about-photo reveal"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=85" alt="Modern gym training floor"><div class="photo-stamp">MAKE IT HAPPEN.</div></div>
+  <div class="about-copy reveal"><span class="section-tag">ABOUT OUR GYM</span><h2>MORE THAN A GYM.<br><span class="red">IT'S A MINDSET.</span></h2><p>Welcome to Fitness Karkhana Gym, your fitness destination in Durgakund, Varanasi. Whether you're starting out or building on your training experience, make this your space to move, learn and grow at your own pace.</p>
+    <div class="feature-list"><div class="feature"><i class="fas fa-dumbbell"></i> Strength and resistance training</div><div class="feature"><i class="fas fa-heart-pulse"></i> Cardio and endurance workouts</div><div class="feature"><i class="fas fa-bullseye"></i> Training around your personal goals</div></div>
+    <a class="btn" href="#contact">TALK TO OUR TEAM <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div></section>
+<section class="services" id="services"><div class="container"><div class="section-head reveal"><span class="section-tag">WHAT WE OFFER</span><h2>FIND YOUR <span class="red">TRAINING STYLE.</span></h2><p>Build a balanced routine with training options for different fitness goals.</p></div>
+  <div class="service-grid">
+    <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=85" alt="Strength training"><div class="service-info"><i class="fas fa-dumbbell"></i><h3>STRENGTH TRAINING</h3><p>Develop strength with focused resistance workouts.</p></div></article>
+    <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1534368270820-9de3d8053204?auto=format&fit=crop&w=800&q=85" alt="Weight training"><div class="service-info"><i class="fas fa-weight-hanging"></i><h3>WEIGHT TRAINING</h3><p>Build a consistent and confident lifting routine.</p></div></article>
+    <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=85" alt="Cardio workout"><div class="service-info"><i class="fas fa-heart-pulse"></i><h3>CARDIO TRAINING</h3><p>Work on stamina and cardiovascular fitness.</p></div></article>
+    <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=85" alt="Personal fitness training"><div class="service-info"><i class="fas fa-user-check"></i><h3>PERSONAL FITNESS</h3><p>Choose a routine that suits your individual goals.</p></div></article>
+    <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=85" alt="Gym workout"><div class="service-info"><i class="fas fa-bolt"></i><h3>FUNCTIONAL FITNESS</h3><p>Move better with practical fitness exercises.</p></div></article>
+    <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=85" alt="Fitness training"><div class="service-info"><i class="fas fa-person-running"></i><h3>FITNESS & CONDITIONING</h3><p>Build an active routine at your own pace.</p></div></article>
+  </div>
+</div></section>
+<section><div class="container"><div class="section-head reveal"><span class="section-tag">WHY FITNESS KARKHANA</span><h2>YOUR GOALS. <span class="red">YOUR JOURNEY.</span></h2></div><div class="why-grid">
+  <article class="why-card reveal"><i class="fas fa-dumbbell"></i><h3>TRAIN WITH PURPOSE</h3><p>Make every session count with a routine built around what you want to achieve.</p></article>
+  <article class="why-card reveal"><i class="fas fa-bullseye"></i><h3>YOUR OWN PACE</h3><p>Start where you are and build consistency one workout at a time.</p></article>
+  <article class="why-card reveal"><i class="fas fa-location-dot"></i><h3>LOCAL & CONVENIENT</h3><p>Find us in Durgakund, near JRS Coaching, Varanasi.</p></article>
+</div></div></section>
+<section class="membership" id="membership"><div class="container"><div class="section-head reveal"><span class="section-tag">MEMBERSHIP PLANS</span><h2>COMMIT TO <span class="red">YOURSELF.</span></h2><p>Choose the membership duration that works for you.</p></div>
+  <div class="price-grid">
+    <article class="price-card reveal"><i class="far fa-calendar"></i><h3>1 MONTH</h3><div class="price">₹2,000</div><p>Monthly membership</p><a class="btn" href="https://wa.me/919236343455?text=Hello%20Fitness%20Karkhana%2C%20I%20want%20to%20enquire%20about%20the%201-month%20membership." target="_blank" rel="noopener">ENQUIRE NOW</a></article>
+    <article class="price-card featured reveal"><div class="popular">POPULAR OPTION</div><i class="fas fa-fire"></i><h3>3 MONTHS</h3><div class="price">₹4,000</div><p>Quarterly membership</p><a class="btn" href="https://wa.me/919236343455?text=Hello%20Fitness%20Karkhana%2C%20I%20want%20to%20enquire%20about%20the%203-month%20membership." target="_blank" rel="noopener">ENQUIRE NOW</a></article>
+    <article class="price-card reveal"><i class="fas fa-trophy"></i><h3>6 MONTHS</h3><div class="price">₹7,000</div><p>Half-year membership</p><a class="btn" href="https://wa.me/919236343455?text=Hello%20Fitness%20Karkhana%2C%20I%20want%20to%20enquire%20about%20the%206-month%20membership." target="_blank" rel="noopener">ENQUIRE NOW</a></article>
+    <article class="price-card reveal"><i class="fas fa-crown"></i><h3>12 MONTHS</h3><div class="price">₹8,000</div><p>Annual membership</p><a class="btn" href="https://wa.me/919236343455?text=Hello%20Fitness%20Karkhana%2C%20I%20want%20to%20enquire%20about%20the%2012-month%20membership." target="_blank" rel="noopener">ENQUIRE NOW</a></article>
+  </div>
+</div></section>
+<section id="gallery"><div class="container"><div class="section-head reveal"><span class="section-tag">THE FITNESS ATMOSPHERE</span><h2>SHOW UP. <span class="red">GET MOVING.</span></h2><p>A glimpse of the energy and focus that make every workout count.</p></div>
+  <div class="gallery-grid"><img class="reveal" src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=85" alt="Gym interior"><img class="reveal" src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=700&q=85" alt="Strength workout"><img class="reveal" src="https://images.unsplash.com/photo-1534368270820-9de3d8053204?auto=format&fit=crop&w=700&q=85" alt="Weight training"><img class="reveal" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=700&q=85" alt="Fitness workout"><img class="reveal" src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=85" alt="Gym exercise"></div>
+</div></section>
+<div class="quote-band"><h2>NO PAIN. <span class="red">NO GAIN.</span></h2><p>DISCIPLINE BUILDS WHAT MOTIVATION STARTS.</p></div>
+<section class="contact" id="contact"><div class="container"><div class="section-head reveal"><span class="section-tag">GET IN TOUCH</span><h2>READY TO <span class="red">GET STARTED?</span></h2><p>Contact Fitness Karkhana and ask about membership.</p></div>
+  <div class="contact-grid"><div class="contact-info reveal">
+    <div class="contact-item"><i class="fas fa-phone"></i><div><h3>CALL US</h3><a href="tel:9236343455">9236343455</a></div></div>
+    <div class="contact-item"><i class="fas fa-map-marker-alt"></i><div><h3>FIND US</h3><p>Durgakund, near JRS Coaching,<br>Kabir Nagar Road, Varanasi, Uttar Pradesh</p></div></div>
+    <div class="contact-item"><i class="fas fa-star"></i><div><h3>GYM RATING</h3><p>4.5 / 5 Stars</p></div></div>
+    <a class="btn" style="width:max-content" href="https://www.google.com/maps/search/?api=1&query=Fitness+Karkhana+Gym+Durgakund+Varanasi" target="_blank" rel="noopener">OPEN GOOGLE MAPS <i class="fas fa-location-arrow"></i></a>
+  </div>
+  <form class="contact-form reveal" id="contact-form"><h3>SEND AN ENQUIRY</h3><input id="name" type="text" placeholder="Your name" required><input id="phone" type="tel" placeholder="Your phone number" pattern="[0-9+\\-\\s]{10,15}" required><textarea id="message" rows="5" placeholder="Tell us which membership you're interested in..." required></textarea><button class="btn" type="submit">SEND ON WHATSAPP <i class="fab fa-whatsapp"></i></button></form>
+  </div>
+</div></section>
+</main>
+<footer><a href="#home" class="logo"><span>FITNESS</span> KARKHANA</a><p>BUILD YOUR BODY. TRANSFORM YOUR LIFE.</p><div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#membership">Membership</a><a href="#contact">Contact</a></div><p>© 2026 Fitness Karkhana Gym. All Rights Reserved.</p></footer>
+<a class="whatsapp" href="https://wa.me/919236343455" target="_blank" rel="noopener" aria-label="Chat with Fitness Karkhana on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<script>
+  const menuToggle=document.getElementById('menu-toggle');
+  const navMenu=document.getElementById('nav-menu');
+  menuToggle.addEventListener('click',()=>{const open=navMenu.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.innerHTML=open?'<i class="fas fa-xmark"></i>':'<i class="fas fa-bars"></i>';});
+  navMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.innerHTML='<i class="fas fa-bars"></i>';}));
+  const navbar=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>30),{passive:true});
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  document.getElementById('contact-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=document.getElementById('name').value.trim();
+    const phone=document.getElementById('phone').value.trim();
+    const message=document.getElementById('message').value.trim();
+    const text=`Hello Fitness Karkhana!%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AMessage: ${encodeURIComponent(message)}`;
+    window.open(`https://wa.me/919236343455?text=${text}`,'_blank','noopener');
+  });
+</script>
 </body>
 </html>
 
